@@ -1,38 +1,70 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+     <!--Agregar logo en un futuro-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="css/bootstrap.min.css" rel="stylesheet"> <!--Bootstrap ya esta importado en el proyecto solo es necerio agregar las class-->
+    <title>Pagina de login</title>
 
-<head>
-  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <title>eMercado - Todo lo que busques está aquí</title>
-  
-  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
-  <link href="css/bootstrap.min.css" rel="stylesheet">
-  <link href="css/styles.css" rel="stylesheet">
-  <style>
-    body {
-      background-color: rgb(248, 249, 250);
-    }
-  </style>
-</head>
+  </head>
 
-<body>
-  <main class="mt-5">
-    <div class="container">
-      <div class="alert alert-danger text-center" role="alert">
-        <h4 class="alert-heading">Funcionalidad en desarrollo</h4>
+  <body> 
+    <!--A la estructura le agrege fotos que estan el la carpeta img/ con el nombre de img-login
+       y tambien agrege estilos inline para dar un poco de forma, que en futuro se pueden mejorar usando una hoja de estilos paricular para esta pagina -->
+
+    <form>
+
+      <div>
+        <img src="img/img-login/login-icon.svg" alt="login-icon" style="height: 7rem"/>
       </div>
-    </div>
-  </main>
-  <footer class="text-muted">
-    <div class="container">
-      <p class="float-end">
-        <a href="#">Volver arriba</a>
-      </p>
-      <p>Este sitio forma parte de <a href="https://jovenesaprogramar.edu.uy/" target="_blank">Jovenes a Programar</a></p>
-    </div>
-  </footer>
-  <script src="js/login.js"></script>
-</body>
 
+      <p>Login</p>
+
+      <section>
+        <div>
+          <img src="img/img-login/username-icon.svg" alt="username-icon" style="height: 1rem"/>
+        </div>
+        <input name="nombre" type="text" placeholder="Ingrese nombre"/>
+      </section>
+
+      <section>
+        <div>
+          <img src="img/img-login/password-icon.svg" alt="password-icon" style="height: 1rem"/>
+        </div>
+        <input name="contraseña" type="password" placeholder="Ingrese contraseña"/>
+      </section>
+
+      <section>
+        <div>
+          <input type="checkbox" />
+          <div style="font-size: 0.9rem">Recordarme</div>
+        </div>
+        <div >
+          <a href="#" style="font-size: 0.9rem">¿Olvido su contraseña?</a>
+        </div>
+      </section>
+
+      <button type="submit">Login</button>
+
+      <section>
+        <span>¿No tiene una cuenta?</span>
+        <a href="#">Registrarse</a>
+      </section>
+
+      <section>
+        <div style="height: 0.9rem">
+          <span>o</span>
+        </div>
+      </section>
+
+      <section>
+        <img src="img/img-login/google-icon.svg" alt="google-icon" style="height: 1.6rem"/>
+        <div>Continue con Google</div>
+      </section>
+
+    </form>
+    <script src="js/login.js"></script>
+  </body>
 </html>
