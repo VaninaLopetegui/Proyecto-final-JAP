@@ -12,16 +12,3 @@ document.addEventListener("DOMContentLoaded", function(){
         window.location = "products.html"
     });
 });
-
-
-let endpoint = "https://japceibal.github.io/emercado-api/cats/cat.json";
-fetch(endpoint)
-
-  .then(res => res.json())
-  .then(data => categorias(data))
-  .catch(err => err)
-
-  function categorias(data) {
-    console.log(data);
-    let objCategorias = data;
-  }
