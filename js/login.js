@@ -4,7 +4,7 @@ document.getElementById("loginForm").addEventListener("submit",(e)=>{
     const username=document.querySelector('[name="nombre"]').value;
     const password=document.querySelector('[name="contraseña"]').value;
     
-    if(username!=="" && password!==""){
+    if(username!=="" && (password!=="" && password.length >= 6)){
         localStorage.setItem("loggedIn", "true");
         localStorage.setItem("username",username);
         location.href="index.html";
