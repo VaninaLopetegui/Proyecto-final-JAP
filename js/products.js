@@ -1,36 +1,47 @@
-// Area para codigo de fetch al API.
-let endpoint = "https://japceibal.github.io/emercado-api/cats/cat.json";
-fetch(endpoint)
-
-  .then(res => res.json())
-  .then(data => { const objeto_productos = data;
-   categorias(objeto_productos); 
-  })
-  .catch(err => err)
-
-  function categorias(objeto_productos) {
-    const container = document.querySelector("#productsContainer");
-  
 
 // Area para integracion de productos en HTML.
 
-    for(let producto of objeto_productos.products) {
+const objeto_productos = [];
+let container = document.querySelector("#productsContainer")
+
+document.addEventListener("DOMContentLoaded", async () => {
+    try {
+        let endpoint = "https://japceibal.github.io/emercado-api/cats_products/101.json";
+        const res = await fetch(endpoint);
+        const data = await res.json();
+        const objeto_productos = data;
+
+        let tarjeta = '';
+
+        for (let producto of objeto_productos.products) {
+            tarjeta += `
+                <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+                    <div class="card mb-4 custom-shadow h-100 bg-light cursor-active">
+                        <img src="./${producto.image}" class="card-img-top" alt="${producto.name}">
+                        <div class="card-body">
+                            <p class="card-text"> 
+                                <p class="nameCar">${producto.name}</p>
+                                <p class="desCar">${producto.description}</p>
+                            </p>    
+                        </div>    
+                            <div class="priceAmount d-flex justify-content-between align-items-center">
+                                <p class="priceCar">USD ${producto.cost}</p>
+                                <p class="amountCar ms-auto me-0">${producto.soldCount}</p>
+                            </div>
+                    </div>
+                </div>`;
+        }
+    
         container.innerHTML += `
-        <div class="row justify-content-start">
-            <div class="col-4">
-                <img width="100%" src="./${producto.image}" alt="${producto.name}">
-            </div>
-            <div class="col-4">
-                <h2>${producto.name} - ${producto.cost}</h2>
-                <p>${producto.description}</p>
-            </div>
-            <div class="col-4">
-                <p>${producto.soldCount} Vendidos</p>
-            </div>
-        </div>`
+            <div class="album py-5">
+                <div class="container">
+                    <div class="row">
+                        ${tarjeta}
+                    </div>
+                </div>
+            </div>`;
+    
+    } catch (err) {
+        console.error(err);
     }
-}
-
-document.addEventListener("DOMContentLoaded", () => {
-
-});
+    });
